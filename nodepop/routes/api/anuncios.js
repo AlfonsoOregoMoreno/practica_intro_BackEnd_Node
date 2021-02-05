@@ -59,7 +59,7 @@ router.post('/', async (req, res, next) => {
     const anuncioData = req.body;
     const anuncio = new Anuncio(anuncioData);
     const anuncioCreado = await anuncio.save();
-    await anuncio.crear();
+    await anuncio.crear(anuncioData);
     res.status(201).json({ result: anuncioCreado });
   } catch (error) {
     next(error);

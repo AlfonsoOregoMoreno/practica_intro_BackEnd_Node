@@ -38,18 +38,15 @@ agenteSchema.statics.lista = function(filtro, limit, skip, fields, sort) {
 
 
   
-anuncioSchema.methods.crear = function() {
-  //this.multado = true;
-  this.nombre = "Nom01"; 
-  this.venta = true; 
-  this.precio = 101; 
-
+anuncioSchema.methods.crear = function(miBody) {
+  //console.log('En CREAR')
+  this.nombre = miBody.nombre; 
+  this.venta = miBody.venta;  
+  this.precio = miBody.precio;  
   return this.save();
 }
 
 
-// creamos el modelo con el esquema definido
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
-//const Agente = mongoose.model('Agente', agenteSchema);
 
 module.exports = Anuncio;
