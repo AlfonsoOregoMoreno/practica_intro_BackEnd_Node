@@ -1,0 +1,109 @@
+{
+    "anuncios": [
+      {
+        "nombre": "Bicicleta",
+        "venta": true,
+        "precio": 130.11,
+        "foto": "bici.jpg",
+        "tags": [
+          "lifestyle"
+        ]
+      },
+      {
+        "nombre": "Motocicleta",
+        "venta": true,
+        "precio": 830.12,
+        "foto": "moto.jpg",
+        "tags": [
+          "lifestyle",
+          "motor", 
+      "pasatiempos"
+        ]
+      },
+      {
+        "nombre": "Renault 5 Copa Turbo",
+        "venta": true,
+        "precio": 4230.13,
+        "foto": "bici.jpg",
+        "tags": [
+          "lifestyle",
+          "motor", 
+      "adrenalina", 
+      "coleccionismo"
+        ]
+      },
+      {
+        "nombre": "Balón baloncesto",
+        "venta": true,
+        "precio": 22.14,
+        "foto": "bola_basket.jpg",
+        "tags": [
+          "deporte",
+          "pasatiempos"
+        ]
+      },
+      {
+        "nombre": "Bote pelotas tenis",
+        "venta": true,
+        "precio": 5.15,
+        "foto": "bolas_tenis.jpg",
+        "tags": [
+          "deporte",
+          "pasatiempos"
+        ]
+      },
+      {
+        "nombre": "Raqueta tenis",
+        "venta": false,
+        "precio": 80.16,
+        "foto": "raqueta_tenis.jpg",
+        "tags": [
+          "deporte"
+        ]
+      },
+      {
+        "nombre": "Pala Pádel",
+        "venta": false,
+        "precio": 130.17,
+        "foto": "pala_padel.jpg",
+        "tags": [
+          "lifestyle",
+          "deporte", 
+      "pasatiempos"
+        ]
+      },
+      {
+        "nombre": "iPad Pro",
+        "venta": false,
+        "precio": 1230.18,
+        "foto": "ipad_pro.jpg",
+        "tags": [
+          "tecnología", 
+      "productividad", 
+      "trabajo"
+        ]
+      },
+      {
+        "nombre": "Apartamento",
+        "venta": false,
+        "precio": 99230.19,
+        "foto": "apartamento.jpg",
+        "tags": [
+          "vivienda",
+          "alojamiento", 
+      "familia"
+        ]
+      },
+      {
+        "nombre": "Estilográfica",
+        "venta": false,
+        "precio": 230.20,
+        "foto": "pluma.jpg",
+        "tags": [
+          "escritura",
+          "lujo", 
+      "coleccionismo"
+        ]
+      }
+    ]
+  }

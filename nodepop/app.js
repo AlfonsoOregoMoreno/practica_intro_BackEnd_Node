@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+require('./lib/connectMongoose');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -26,22 +28,22 @@ app.use(express.static(path.join(__dirname, 'public')));
  * 
  * CONECTAR a BDD
  */
-const mongoose = require('mongoose'); 
+// const mongoose = require('mongoose'); 
 
-mongoose.connection.on('error', err => {
-    console.log('====================>> ERROR de conexión!!!', err);
-    process.exit(1);
-  });
+// mongoose.connection.on('error', err => {
+//     console.log('====================>> ERROR de conexión!!!', err);
+//     process.exit(1);
+//   });
   
-mongoose.connection.once('open', () => {
-    console.log('Conectado OK a MongoDB en', mongoose.connection.name);
-});
+// mongoose.connection.once('open', () => {
+//     console.log('Conectado OK a MongoDB en', mongoose.connection.name);
+// });
   
-//mongoose.connect('mongodb://localhost/nodepop/databases/nodepopDB/anuncios', {
-mongoose.connect('mongodb://localhost/anuncios', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true  
-}); 
+// //mongoose.connect('mongodb://localhost/nodepop/databases/nodepopDB/anuncios', {
+// mongoose.connect('mongodb://localhost/anuncios', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true  
+// }); 
 
 
 

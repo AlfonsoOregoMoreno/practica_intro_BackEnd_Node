@@ -7,7 +7,8 @@ const Anuncio = require('../../models/Anuncio');
 /* GET /api/anuncios */
 // Listado de anuncios
 router.get('/', async function(req, res, next) {
-  try {
+  console.log('En GET del raíz................')
+    try {
 
     const nombre = req.query.nombre;
     const venta = req.query.venta;
@@ -33,6 +34,24 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+
+// GET /api/agentes:precio
+// Obtener un agente
+router.get('/precio/:precio', async (req, res, next) => {
+  try {
+    const anuncio = await Anuncio.findOne({ precio: req.params.precio }); 
+
+    if (!anuncio) {
+      return res.status(404).json({ error: 'NO SE HA ENCONTRADO EL ANUNCIO' });
+    }
+    res.json({ result: anuncio });
+
+  } catch (err) {
+    next(err);
+  }
+});
+
+
 // // GET /api/agentes:id
 // // Obtener un agente
 // router.get('/:id', async (req, res, next) => {
@@ -55,6 +74,7 @@ router.get('/', async function(req, res, next) {
 // POST /api/anuncios (usando BODY)
 // http method para crear un anuncio
 router.post('/', async (req, res, next) => {
+    console.log('En POST del raiz...............'); 
   try {
     const anuncioData = req.body;
     const anuncio = new Anuncio(anuncioData);
@@ -65,31 +85,6 @@ router.post('/', async (req, res, next) => {
     next(error);
   }
 });
-
-
-// // PUT /api/agentes:id (body)
-// // Actualizar un agente
-// router.put('/:id', async (req, res, next) => {
-//   try {
-//     const _id = req.params.id;
-//     const agenteData = req.body;
-
-//     const agenteActualizado = await Agente.findOneAndUpdate({ _id: _id }, agenteData, { 
-//       new: true,
-//       useFindAndModify: false
-//     });
-//     // usamos { new: true } para que nos devuelva el agente actualizado
-
-//     if (!agenteActualizado) {
-//       res.status(404).json({ error: 'not found' });
-//       return;
-//     }
-
-//     res.json({ result: agenteActualizado });
-//   } catch (error) {
-//     next(error);
-//   }
-// });
 
 
 // // DELETE /api/agentes:id
@@ -106,14 +101,52 @@ router.post('/', async (req, res, next) => {
 //   }
 // });
 
+// // DELETE /api/anuncios:id
+// router.delete('/:id', async (req, res, next) => {
+//     console.log('En DELETE')
+//     try {
+//       const _id = req.params.id;
+  
+//       //await Agente.deleteOne({ _id: _id });
+//       await Anuncio.deleteOne({ _id: _id });
+  
+//       res.json();
+//     } catch (error) {
+//       next(error);
+//     }
+// });
+  
+// // DELETE /api/anuncios/:nombre
+// router.delete('/:nom', async (req, res, next) => {
+//     console.log('En DELETE por nombre')
+//     try {
+//       const nom = req.params.nom;
+//       //cont nom02 = req.params.no
+  
+//       await Anuncio.deleteOne({ nombre: nom });
+  
+//       res.json();
+//     } catch (error) {
+//       next(error);
+//     }
+// });
+
+// DELETE /api/anuncios/:nombre
+router.delete('/TODOS', async (req, res, next) => {
+    console.log('En DELETE todos >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    try {
+      //const nom = req.params.nom;
+      //cont nom02 = req.params.no
+  
+      await Anuncio.deleteMany({});
+  
+      res.json();
+    } catch (error) {
+      next(error);
+    }
+});
+
 module.exports = router;
-
-
-
-
-
-
-
 
 
 

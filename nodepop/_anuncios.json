@@ -1,0 +1,24 @@
+{
+    "anuncios": [
+      {
+        "nombre": "Bicicleta",
+        "venta": true,
+        "precio": 130.11,
+        "foto": "bici.jpg",
+        "tags": [
+          "lifestyle"
+        ]
+      },
+      {
+        "nombre": "Motocicleta",
+        "venta": true,
+        "precio": 830.12,
+        "foto": "moto.jpg",
+        "tags": [
+          "lifestyle",
+          "motor", 
+          "pasatiempos"
+        ]
+      }
+    ]
+}
