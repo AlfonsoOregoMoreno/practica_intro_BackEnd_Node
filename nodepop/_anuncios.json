@@ -11,7 +11,7 @@
       },
       {
         "nombre": "Motocicleta",
-        "venta": true,
+        "venta": false,
         "precio": 830.12,
         "foto": "moto.jpg",
         "tags": [

@@ -8,5 +8,15 @@
     <h1><%= title %></h1>
     <!-- <p>Welcome to <%= title %></p> -->
     <p>Para acceso al API, usar URL /api/anuncios</p>
+
+    <% for(let anuncio of resultSet){%>
+      <br>
+      <p>-----------------------</p>
+      </p><b>Artículo: </b> <%= anuncio.nombre %> </p> <b>Precio:</b> <%= anuncio.precio %> EUROS
+      <p></p> <b>Tags:</b> <%= anuncio.tags %>  </p>
+      <p></p> <b>En venta:</b> <%= anuncio.venta %>  </p>
+      <p>
+    <%}%>    
+
   </body>
 </html>

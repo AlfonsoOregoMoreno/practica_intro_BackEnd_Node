@@ -31,15 +31,6 @@ anuncioSchema.methods.crear = function(miBody) {
     this.tags = miBody.tags; 
     return this.save();
 }
-
-// anuncioSchema.methods.borrarTodos = function(miBody) {
-//     console.log('En BORRAR_TODOS, del schema, de anuncioSchema'); 
-//     this.nombre = miBody.nombre; 
-//     this.venta = miBody.venta;  
-//     this.precio = miBody.precio;  
-//     //this.methods.de
-//     return this.save();
-// }
     
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
