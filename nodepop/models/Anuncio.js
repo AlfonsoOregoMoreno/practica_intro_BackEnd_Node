@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 
 // Esquema para los anuncios
 const anuncioSchema = mongoose.Schema({
-  nombre: { type: String, index: true },
-  venta: Boolean,
-  precio: Number, 
-  foto: String, 
-  tags: [ String ]
-    }, {  collection: 'anuncios'}
+        nombre: { type: String, index: true },
+        venta: Boolean,
+        precio: Number, 
+        foto: String, 
+        tags: [ String ]
+    }, 
+    {  collection: 'anuncios'}
 );
 
 anuncioSchema.statics.lista = function(filtro, limit, skip, fields, sort) {
@@ -26,17 +27,19 @@ anuncioSchema.methods.crear = function(miBody) {
     this.nombre = miBody.nombre; 
     this.venta = miBody.venta;  
     this.precio = miBody.precio;  
+    this.foto = miBody.foto; 
+    this.tags = miBody.tags; 
     return this.save();
 }
 
-anuncioSchema.methods.borrarTodos = function(miBody) {
-    console.log('En BORRAR_TODOS, del schema, de anuncioSchema'); 
-    this.nombre = miBody.nombre; 
-    this.venta = miBody.venta;  
-    this.precio = miBody.precio;  
-    //this.methods.de
-    return this.save();
-}
+// anuncioSchema.methods.borrarTodos = function(miBody) {
+//     console.log('En BORRAR_TODOS, del schema, de anuncioSchema'); 
+//     this.nombre = miBody.nombre; 
+//     this.venta = miBody.venta;  
+//     this.precio = miBody.precio;  
+//     //this.methods.de
+//     return this.save();
+// }
     
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 

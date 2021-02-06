@@ -52,6 +52,67 @@ router.get('/precio/:precio', async (req, res, next) => {
 });
 
 
+
+// POST /api/anuncios (usando BODY)
+// http method para crear un anuncio
+router.post('/', async (req, res, next) => {
+    console.log('En POST del raiz...............'); 
+  try {
+    const anuncioData = req.body;
+    const anuncio = new Anuncio(anuncioData);
+    const anuncioCreado = await anuncio.save();
+    await anuncio.crear(anuncioData);
+    res.status(201).json({ result: anuncioCreado });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+// DELETE /api/anuncios/:nombre
+router.delete('/', async (req, res, next) => {
+    console.log('En DELETE todos >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    try {
+      //const nom = req.params.nom;
+      //cont nom02 = req.params.no
+  
+      await Anuncio.deleteMany({});
+  
+      res.json();
+    } catch (error) {
+      next(error);
+    }
+});
+
+module.exports = router;
+
+
+
+//-------------------------------
+
+
+// var express = require('express');
+// var router = express.Router();
+
+// const Anuncio = require('../../models/Anuncio'); 
+
+// /* La petición sería: GET /api/anuncios */
+// router.get('/', function(req, res, next) {
+//     Anuncio.find(); 
+//     res.send('respond with a resource');
+// });
+
+// /* router.get('/star', (req, res, next) => {
+//   res.send('llamada a star')
+// });
+//  */
+
+// module.exports = router;
+
+
+
+
+
 // // GET /api/agentes:id
 // // Obtener un agente
 // router.get('/:id', async (req, res, next) => {
@@ -69,22 +130,6 @@ router.get('/precio/:precio', async (req, res, next) => {
 //     next(err);
 //   }
 // });
-
-
-// POST /api/anuncios (usando BODY)
-// http method para crear un anuncio
-router.post('/', async (req, res, next) => {
-    console.log('En POST del raiz...............'); 
-  try {
-    const anuncioData = req.body;
-    const anuncio = new Anuncio(anuncioData);
-    const anuncioCreado = await anuncio.save();
-    await anuncio.crear(anuncioData);
-    res.status(201).json({ result: anuncioCreado });
-  } catch (error) {
-    next(error);
-  }
-});
 
 
 // // DELETE /api/agentes:id
@@ -130,43 +175,3 @@ router.post('/', async (req, res, next) => {
 //       next(error);
 //     }
 // });
-
-// DELETE /api/anuncios/:nombre
-router.delete('/TODOS', async (req, res, next) => {
-    console.log('En DELETE todos >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-    try {
-      //const nom = req.params.nom;
-      //cont nom02 = req.params.no
-  
-      await Anuncio.deleteMany({});
-  
-      res.json();
-    } catch (error) {
-      next(error);
-    }
-});
-
-module.exports = router;
-
-
-
-//-------------------------------
-
-
-// var express = require('express');
-// var router = express.Router();
-
-// const Anuncio = require('../../models/Anuncio'); 
-
-// /* La petición sería: GET /api/anuncios */
-// router.get('/', function(req, res, next) {
-//     Anuncio.find(); 
-//     res.send('respond with a resource');
-// });
-
-// /* router.get('/star', (req, res, next) => {
-//   res.send('llamada a star')
-// });
-//  */
-
-// module.exports = router;

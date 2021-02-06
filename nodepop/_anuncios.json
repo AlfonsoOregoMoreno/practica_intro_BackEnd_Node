@@ -1,5 +1,5 @@
 {
-    "anuncios": [
+    "todosLosAnuncios": [
       {
         "nombre": "Bicicleta",
         "venta": true,
